@@ -10,18 +10,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Aap background color ab koi bhi rakh sakte hain, white box nahi dikhega */
     background-color: #ffffff; 
     overflow: hidden;
   }
 
   .loading img {
-    /* Size ko 2.5 rakha hai taaki zyada bada na ho */
-    width: 250px; 
+    /* Is value (350px) ko badha kar aap size aur control kar sakte hain */
+    width: 350px; 
     height: auto;
     
-    /* Ye line white background ko gayab kar degi */
+    /* White corners hatane ke liye */
     mix-blend-mode: multiply;
+    
+    /* Pixel quality maintain karne ke liye */
+    image-rendering: auto;
   }
 </style>
 </head>
