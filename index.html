@@ -1,24 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
 <style>
   body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
     width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: center; /* Horizontally center karne ke liye */
-    align-items: center;     /* Vertically center karne ke liye */
-    background-color: #f0f0f0; /* Optional: background color */
+    justify-content: center;
+    align-items: center;
+    /* Background color image se match kar diya taaki white box na dikhe */
+    background-color: #f2f2f2; 
+    overflow: hidden;
   }
 
   .loading img {
-    width: 300px;  /* Pikachu ka size bada karne ke liye (aap isse change kar sakte hain) */
-    height: auto;  /* Aspect ratio maintain karne ke liye */
+    /* Is number ko badhane se Pikachu aur bada hoga (e.g., 6.0, 7.0) */
+    transform: scale(5.0); 
+    image-rendering: pixelated; /* Bada hone par dhundhla (blur) na ho isliye */
   }
 </style>
-
+</head>
 <body>
-  <div class="loading">
-    <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
-  </div>
-  <div class="mouse original"></div>
+
+<div class="loading">
+  <img src="http://a.top4top.net/p_1990j031.gif" alt="Loading">
+</div>
+
 </body>
+</html>
