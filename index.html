@@ -10,15 +10,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Background color image se match kar diya taaki white box na dikhe */
-    background-color: #f2f2f2; 
+    /* Aap background color ab koi bhi rakh sakte hain, white box nahi dikhega */
+    background-color: #ffffff; 
     overflow: hidden;
   }
 
   .loading img {
-    /* Is number ko badhane se Pikachu aur bada hoga (e.g., 6.0, 7.0) */
-    transform: scale(5.0); 
-    image-rendering: pixelated; /* Bada hone par dhundhla (blur) na ho isliye */
+    /* Size ko 2.5 rakha hai taaki zyada bada na ho */
+    width: 250px; 
+    height: auto;
+    
+    /* Ye line white background ko gayab kar degi */
+    mix-blend-mode: multiply;
   }
 </style>
 </head>
