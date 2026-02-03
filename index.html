@@ -1,78 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #000814; /* Raat ka asman */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Raat ka scene */
+    overflow: hidden;
+  }
 
-        /* Pikachu ka Container */
-        .stage {
-            position: relative;
-            text-align: center;
-        }
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
-        .pikachu {
-            width: 350px;
-            mix-blend-mode: screen; /* Background hataane ke liye */
-            animation: pikachu-life 4s infinite; /* 4 second ka loop */
-        }
+  /* Firework (Patakha) */
+  .firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: yellow;
+    border-radius: 50%;
+    bottom: -100px;
+    animation: shoot-and-blast 4s infinite;
+  }
 
-        /* Firecracker (Chhota dot jo upar jayega) */
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: orange;
-            border-radius: 50%;
-            bottom: 0;
-            left: 50%;
-            opacity: 0;
-            animation: shoot 4s infinite;
-        }
+  /* Pikachu */
+  .pikachu {
+    width: 400px; /* Thoda bada size */
+    height: auto;
+    mix-blend-mode: screen; /* Background hataane ke liye */
+    display: block;
+    animation: pikachu-fall 4s infinite;
+    transform-origin: bottom center;
+  }
 
-        /* Pikachu Girne aur Chalne ki Animation */
-        @keyframes pikachu-life {
-            0% { transform: scale(1) rotate(0deg); opacity: 1; }
-            70% { transform: scale(1) rotate(0deg); } /* 70% tak chalta rahega */
-            80% { transform: scale(1.1) rotate(90deg) translateY(50px); } /* Phatne par gir gaya */
-            95% { transform: scale(1) rotate(0deg); } /* Phir uth gaya */
-            100% { transform: scale(1) rotate(0deg); }
-        }
+  /* Animation 1: Patakha upar jayega aur phatega */
+  @keyframes shoot-and-blast {
+    0% { bottom: 0; width: 6px; height: 6px; background: orange; opacity: 1; }
+    50% { bottom: 300px; width: 6px; height: 6px; opacity: 1; }
+    55% { 
+      bottom: 300px; 
+      width: 300px; 
+      height: 300px; 
+      background: radial-gradient(circle, white, yellow, red, transparent); 
+      transform: translateX(-50%);
+      opacity: 1;
+    }
+    65% { opacity: 0; }
+    100% { opacity: 0; }
+  }
 
-        /* Firecracker upar jane aur phatne ki animation */
-        @keyframes shoot {
-            0% { bottom: 0; opacity: 1; width: 5px; height: 5px; }
-            70% { bottom: 300px; opacity: 1; width: 5px; height: 5px; }
-            75% { 
-                bottom: 300px; 
-                width: 200px; 
-                height: 200px; 
-                background: radial-gradient(circle, yellow, orange, transparent); 
-                opacity: 1; 
-                transform: translateX(-50%);
-            }
-            80% { opacity: 0; }
-            100% { opacity: 0; }
-        }
-    </style>
+  /* Animation 2: Pikachu chalega aur blast par girega */
+  @keyframes pikachu-fall {
+    0% { transform: rotate(0deg) translateY(0); opacity: 1; }
+    50% { transform: rotate(0deg) translateY(0); } /* Blast hone tak chalta rahega */
+    60% { transform: rotate(90deg) translateY(100px); } /* Blast hua aur gir gaya */
+    90% { transform: rotate(90deg) translateY(100px); opacity: 1; }
+    100% { transform: rotate(0deg) translateY(0); } /* Wapas uth gaya */
+  }
+</style>
 </head>
 <body>
 
-<div class="stage">
-    <div class="firework"></div>
-    
-    <div class="loading">
-        <img src="http://a.top4top.net/p_1990j031.gif" class="pikachu" alt="Pikachu">
-    </div>
+<div class="container">
+  <div class="firework"></div>
+
+  <div class="loading">
+    <img src="http://a.top4top.net/p_1990j031.gif" class="pikachu" alt="Pikachu">
+  </div>
 </div>
 
 </body>
